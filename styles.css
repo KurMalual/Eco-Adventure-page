@@ -14,16 +14,19 @@
     
   }
   .img {
-    width: 50px;
-    height: 50px;
-    padding-left: 5px;
-    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding-left: 7px;
+    border-radius: 60%;
+    position: relative;
   }
   nav {
     display: flex;
-    padding: 2% 5%;
+    padding: 5px;
     justify-content: space-between;
     align-items: center;
+    background-color: #079713;
+    
   }
   nav img {
     width: 150px;
@@ -153,6 +156,16 @@
   .service-card p {
     margin-bottom: 5px;
     font-size: 15px;
+  }
+  button{
+    background-color: green;
+    padding: 11px 40px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: larger;
+    color: white;
+    border: none;
+    
   }
   
   h2 {
