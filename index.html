@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="script.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
       rel="stylesheet"
@@ -54,7 +55,7 @@
           </p>
           <p><span class="subtitle">Pricing</span>: $1000</p>
           <p><span class="subtitle">Availability</span>: Available</p>
-          <p><span><button>Book</button></span></p>
+          <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
         <div class="service-card">
           <img src="images/sao 2.jpg" alt="" />
@@ -66,7 +67,7 @@
           </p>
           <p><span class="subtitle">Pricing</span>: $200</p>
           <p><span class="subtitle">Availability</span>: Available</p>
-          <p><span><button>Book</button></span></p>
+          <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
         <div class="service-card">
           <img src="images/sao 3.JPG" alt="" />
@@ -79,7 +80,7 @@
           </p>
           <p><span class="subtitle">Pricing</span>: $2500</p>
           <p><span class="subtitle">Availability</span>: Available</p>
-          <p><span><button>Book</button></span></p>
+          <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
       </div>
     </section>
@@ -97,7 +98,7 @@
           </p>
           <p><span class="subtitle">Pricing</span>: $1000</p>
           <p><span class="subtitle">Availability</span>: Available</p>
-          <p><span><button>Book</button></span></p>
+          <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
         <div class="service-card">
           <img src="images/sao 7.jpg" alt="" />
@@ -109,7 +110,7 @@
           </p>
           <p><span class="subtitle">Pricing</span>: $200</p>
           <p><span class="subtitle">Availability</span>: Available</p>
-          <p><span><button>Book</button></span></p>
+          <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
         <div class="service-card">
           <img src="images/sao 6.jpg" alt="" />
@@ -122,10 +123,22 @@
           </p>
           <p><span class="subtitle">Pricing</span>: $2500</p>
           <p><span class="subtitle">Availability</span>: Available</p>
-          <p><span><button>Book</button></span></p>
+          <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
       </div>
     </section>
+    <div id="booking-form" class="hidden">
+      <h3>Booking Form</h3>
+      <form id="booking-form-submit" name="submit-to-google-sheet">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="Name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="Date" required>
+        <button type="submit">Submit Booking</button>
+      </form>
+    </div>
 
     <!-- about section -->
     <section id="about">
@@ -244,22 +257,45 @@
     <section id="contact">
       <h2>Contact Us</h2>
       <div class="query-form">
-        <form class="query-form" action="#" method="post">
+        <form class="query-form" action="#" method="post" name="submit-to-google-sheets">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
+            <input type="text" id="name" name="Name" required />
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="Email" required />
           </div>
           <div class="form-group">
             <label for="query">Query</label>
-            <textarea id="query" name="query" required></textarea>
+            <textarea id="query" name="Query" required></textarea>
           </div>
           <button type="submit" class="submit-btn">Submit</button>
         </form>
       </div>
     </section>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwmRF2YG5V4i1DlXEYeNC80QLkXXG2jhazOU6zlRHzLCYv7Ad-1MfLNt_4AhKrc3zwG/exec'
+      const form = document.forms['submit-to-google-sheet']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+
+    <script>
+      const myscriptURL = 'https://script.google.com/macros/s/AKfycbzvqLn6z2Dgu8pBaYkTjafV2SdSA46hDxqvnIyNoTdV7uzcOXIDAIisa62-raML9Yq0bQ/exec'
+      const forms = document.forms['submit-to-google-sheets']
+    
+      forms.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(myscriptURL, { method: 'POST', body: new FormData(forms)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
