@@ -97,9 +97,11 @@
   @media (max-width: 700px) {
     .text-box h1 {
       font-size: 20px;
+      
     }
     .nav-links ul li {
       display: block;
+      
     }
     .nav-links {
       position: absolute;
@@ -262,6 +264,7 @@
   @media (max-width: 768px) {
     .service-cards {
       grid-template-columns: 1fr;
+      
     }
     .member-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -274,6 +277,7 @@
     input[type="email"],
     textarea {
       font-size: 16px;
+      
     }
   
     .submit-btn {
@@ -282,7 +286,7 @@
     }
   }
   .booking-btn {
-    background-color: #0099ff;
+    
     color: #fff;
     padding: 10px 20px;
     border: none;

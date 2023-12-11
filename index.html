@@ -55,7 +55,7 @@
             breathtaking landscapes of Soa Tome. Explore nature's beauty and
             challenge yourself with exciting treks.
           </p>
-          <p><span class="subtitle">Pricing</span>: $1000</p>
+          <p><span class="subtitle">Pricing</span> $850</p>
           <p><span class="subtitle">Availability</span>: Available</p>
           <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
@@ -68,7 +68,7 @@
             over the equal spectacular beach. A golden sand banana-shaped beach
             with azure waters and black boulders flanked by jungle.
           </p>
-          <p><span class="subtitle">Pricing</span>: $200</p>
+          <p><span class="subtitle">Pricing</span>: $600</p>
           <p><span class="subtitle">Availability</span>: Available</p>
           <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
@@ -82,7 +82,7 @@
             Experience the awe-inspiring beauty of these majestic creatures up
             close.
           </p>
-          <p><span class="subtitle">Pricing</span>: $2500</p>
+          <p><span class="subtitle">Pricing</span>: $1000</p>
           <p><span class="subtitle">Availability</span>: Available</p>
           <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
@@ -100,7 +100,7 @@
             breathtaking landscapes of Sao Tome and Principe. Explore nature's beauty and
             challenge yourself with exciting treks.
           </p>
-          <p><span class="subtitle">Pricing</span>: $1000</p>
+          <p><span class="subtitle">Pricing</span>: $700</p>
           <p><span class="subtitle">Availability</span>: Available</p>
           <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
@@ -112,7 +112,7 @@
             animals in their natural habitats. Get up close with exotic species
             and create unforgettable memories.
           </p>
-          <p><span class="subtitle">Pricing</span>: $200</p>
+          <p><span class="subtitle">Pricing</span>: $400</p>
           <p><span class="subtitle">Availability</span>: Available</p>
           <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
@@ -125,7 +125,7 @@
             Experience the awe-inspiring beauty of these majestic creatures up
             close.
           </p>
-          <p><span class="subtitle">Pricing</span>: $2500</p>
+          <p><span class="subtitle">Pricing</span>: $1000</p>
           <p><span class="subtitle">Availability</span>: Available</p>
           <a href="#booking-form-submit"><button id="book-mountain-trek56" class="booking-btn" onclick="BookHere()">Book</button></a>
         </div>
@@ -134,13 +134,23 @@
     <div id="booking-form" class="hidden">
       <h3>Booking Form</h3>
       <form id="booking-form-submit" name="submit-to-google-sheet">
+        <label for="services" name="services" required>Select Service:</label>
+        <select id="services" name="services" required>
+          <option value="Cao Grande Peak (668 m) - $1000">Cao Grande Peak (668 m) - $850</option>
+          <option value="Praia Banana Beach - $600" >Praia Banana Beach - $600</option>
+          <option value="Rolas Island - $1000">Rolas Island - $1000</option>
+          <option value="Amazing Beach - $700">Amazing Beach - $700</option>
+          <option value="Safari - $400">Safari - $400</option>
+          <option value="Obo National Park - $1000">Obo National Park - $1000</option>
+        </select>
+        <br><br>
         <label for="name">Name:</label>
         <input type="text" id="name" name="Name" required>
         <label for="email">Email:</label>
         <input type="email" id="email" name="Email" required>
         <label for="date">Date:</label>
         <input type="date" id="date" name="Date" required>
-        <button type="submit">Submit Booking</button>
+        <button type="submit" onclick="resetForm()">Submit Booking</button>
       </form>
     </div>
 
@@ -272,9 +282,10 @@
           </div>
           <div class="form-group">
             <label for="query">Query</label>
-            <textarea id="query" name="Query" required></textarea>
+            <!-- <textarea id="query" name="Query" required></textarea> -->
+            <textarea id="query" name="Query" rows="1" style="height: 30px;" oninput="adjustTextAreaHeight()"></textarea>
           </div>
-          <button type="submit" class="submit-btn">Submit</button>
+          <button type="submit" class="submit-btn" onclick="sendForm()">Submit</button>
         </form>
       </div>
     </section>
@@ -300,6 +311,43 @@
           .then(response => console.log('Success!', response))
           .catch(error => console.error('Error!', error.message))
       })
+    </script>
+    <form id="myForm">
+      <!-- Your form fields go here -->
+      <input type="submit" value="Submit" onclick="resetForm()">
+    </form>
+    
+    <script>
+    function resetForm() {
+      alert('Thank for booking, your choice is well received');
+      document.getElementById("booking-form-submit");
+     
+    }
+    </script>
+    <script>
+      function sendForm() {
+        document.getElementById("contact");
+        // Display the alert message
+        alert('Thank you for query, we will get back to you');
+    
+        // Reset the form
+        
+      }
+    </script>
+    <script>
+      function adjustTextAreaHeight() {
+        const textArea = document.getElementById('query');
+        
+        // Reset the textarea's height to the default before recalculating
+        textArea.style.height = 'auto';
+        
+        // Set the minimum height (adjust this value as needed)
+        const minHeight = 30;
+        
+        // Set the height of the textarea based on its scroll height or minimum height
+        textArea.style.height = Math.max(minHeight, textArea.scrollHeight) + 'px';
+      }
+      
     </script>
   </body>
 </html>
