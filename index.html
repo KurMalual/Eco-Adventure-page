@@ -22,8 +22,7 @@
         <a href="index.html"
           ><img src="images/20231206_000435_0000.jpg" alt="logo" class="img"
         /></a>
-        <div class="nav-links" id="navLinks">
-          <i class="fa fa-times" onclick="hideMenu()"></i>
+        <div class="nav-links">
             <ul>
               <li><a href="#">Home</a></li>
               <li><a href="#services">Services</a></li>
@@ -32,7 +31,6 @@
               <li><a href="#contact">Contact Us</a></li>
             </ul>
         </div>
-        <i class="fa fa-bars" onclick="showMenu()"></i>
       </nav>
 
       <div class="text-box">
@@ -347,16 +345,6 @@
         textArea.style.height = Math.max(minHeight, textArea.scrollHeight) + 'px';
       }
       
-    </script>
-    <!-- ----- javascript for toggle menu ----- -->
-    <script>
-      var navLinks = document.getElementById("navLinks");
-      function showMenu(){
-        navLinks.style.right = "0";
-      }
-      function hideMenu(){
-        navLinks.style.right = "-200px";
-      }
     </script>
   </body>
 </html>
