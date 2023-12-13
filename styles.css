@@ -286,6 +286,9 @@
       width: 100%;
 
     }
+    iframe{
+      width: 100%;
+    }
   }
   .booking-btn {
     background-color: green;
